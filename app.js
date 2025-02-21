@@ -30,36 +30,48 @@ document.getElementById("email").addEventListener("blur", function(){
 document.getElementById("senha").addEventListener("blur", function(){
     fnAdicionarMensagemDeErro("mensagem-erro-senha", "limpar")
 
-    let senhavalido = fnValidarMinimoDeCaracteres(5, this.value);
+    let senhavalido = fnValidarMinimoDeCaracteres(8, this.value);
     if(senhavalido == false){
-        fnAdicionarMensagemDeErro("mensagem-erro-senha", "No mínimo 5 caracteres")  
+        fnAdicionarMensagemDeErro("mensagem-erro-senha", "No mínimo 8 caracteres")  
     }
+
     let senhaobrigadorio = fnValidarCampoObrigatorio(this.value);
     if(senhaobrigadorio == false){
         fnAdicionarMensagemDeErro("mensagem-erro-senha", "campo obrigatório")
-    }      
+    }
+
+    let senhaMaiuscula = fnValidarSenhaMaiuscula(this.value);
+    if(senhaMaiuscula == false){
+        fnAdicionarMensagemDeErro("mensagem-erro-senha", "A senha deve conter pelo menos uma letra maiúscula")
+    } 
+
+    let senhaCaracteresEspecial = fnValidarSenhaCaracteresEspecia(this.value);
+    if(senhaCaracteresEspecial == false){
+        fnAdicionarMensagemDeErro("mensagem-erro-senha", "A senha deve conter pelo menos um caracteres especial")
+    }             
 })
 
 
 document.getElementById("confirmarSenha").addEventListener("blur", function(){
     fnAdicionarMensagemDeErro("mensagem-erro-confirmarSenha", "limpar")
 
-    let confirmarsenhavalido = fnValidarMinimoDeCaracteres(5, this.value);
+    let confirmarsenhavalido = fnValidarMinimoDeCaracteres(8, this.value);
     if(confirmarsenhavalido == false){
-        fnAdicionarMensagemDeErro("mensagem-erro-confirmarSenha", "No mínimo 5 caracteres")  
+        fnAdicionarMensagemDeErro("mensagem-erro-confirmarSenha", "No mínimo 8 caracteres")  
     }
     let confirmarSenhaobrigatorio = fnValidarCampoObrigatorio(this.value);
     if(confirmarSenhaobrigatorio == false){
         fnAdicionarMensagemDeErro("mensagem-erro-confirmarSenha", "campo obrigatório")   
     }
+           
 })
 
 document.getElementById("cidade").addEventListener("blur", function(){
     fnAdicionarMensagemDeErro("mensagem-erro-cidade", "limpar")
 
-    let cidadevalido = fnValidarMinimoDeCaracteres(5, this.value);
+    let cidadevalido = fnValidarMinimoDeCaracteres(3, this.value);
     if(cidadevalido == false){
-        fnAdicionarMensagemDeErro("mensagem-erro-cidade")
+        fnAdicionarMensagemDeErro("mensagem-erro-cidade", "No minimo 3 caracters")
         
     }
     let cidadeobrigatorio = fnValidarCampoObrigatorio(this.value);
