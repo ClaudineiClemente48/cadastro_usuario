@@ -59,3 +59,10 @@ body {
     margin-top: 10px;
     text-align: center;
 }
+.erro-mensagem {
+    display: none;
+    color: #e74c3c;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+

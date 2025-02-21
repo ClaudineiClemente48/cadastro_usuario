@@ -1,24 +1,71 @@
+document.getElementById("nome").addEventListener("blur", function(){
+    fnAdicionarMensagemDeErro("mensagem-erro-nome", "limpar")
 
-function validarFormulario() {
-
-    // Obter os valores dos campos
-    const nome = document.getElementById("nome").value;
-    const email = document.getElementById("email").value;
-    const senha = document.getElementById("senha").value;
-    const confirmarSenha = document.getElementById("confirmarSenha").value;
-    const cidade = document.getElementById("cidade").value;
-    const estado = document.getElementById("estado").value;
-
- // Verificar se todos os campos obrigatórios foram preenchidos
-    if (!nome || !email || !senha || !confirmarSenha || !cidade || !estado) {
-        alert("Todos os campos são obrigatórios!");
-        return false;
+    let nomevalido = fnValidarMinimoDeCaracteres(3, this.value);
+    if(nomevalido == false){
+        fnAdicionarMensagemDeErro("mensagem-erro-nome", "No mínimo 3 caracteres")   
     }
-    if (senha !== confirmarSenha) {
-        alert("As senhas não coincidem!");
-        return false;
+    let nomeobrigadorio = fnValidarCampoObrigatorio(this.value);
+    if(nomeobrigadorio == false){
+        fnAdicionarMensagemDeErro("mensagem-erro-nome", "campo obrigatório")
+        
     }
-    
-    alert("Cadastro realizado com sucesso!");
-    return true;
-}
+})
+
+document.getElementById("email").addEventListener("blur", function(){
+    fnAdicionarMensagemDeErro("mensagem-erro-email", "limpar")
+
+    let emailvalido = fnValidarMinimoDeCaracteres(5, this.value);
+    if(emailvalido == false){
+        fnAdicionarMensagemDeErro("mensagem-erro-email", "No mínimo 5 caracteres")
+    }
+    let emailobrigadorio = fnValidarCampoObrigatorio(this.value);
+    if(emailobrigadorio == false){
+        fnAdicionarMensagemDeErro("mensagem-erro-email", "campo obrigatório")
+    }
+        
+})
+
+
+document.getElementById("senha").addEventListener("blur", function(){
+    fnAdicionarMensagemDeErro("mensagem-erro-senha", "limpar")
+
+    let senhavalido = fnValidarMinimoDeCaracteres(5, this.value);
+    if(senhavalido == false){
+        fnAdicionarMensagemDeErro("mensagem-erro-senha", "No mínimo 5 caracteres")  
+    }
+    let senhaobrigadorio = fnValidarCampoObrigatorio(this.value);
+    if(senhaobrigadorio == false){
+        fnAdicionarMensagemDeErro("mensagem-erro-senha", "campo obrigatório")
+    }      
+})
+
+
+document.getElementById("confirmarSenha").addEventListener("blur", function(){
+    fnAdicionarMensagemDeErro("mensagem-erro-confirmarSenha", "limpar")
+
+    let confirmarsenhavalido = fnValidarMinimoDeCaracteres(5, this.value);
+    if(confirmarsenhavalido == false){
+        fnAdicionarMensagemDeErro("mensagem-erro-confirmarSenha", "No mínimo 5 caracteres")  
+    }
+    let confirmarSenhaobrigatorio = fnValidarCampoObrigatorio(this.value);
+    if(confirmarSenhaobrigatorio == false){
+        fnAdicionarMensagemDeErro("mensagem-erro-confirmarSenha", "campo obrigatório")   
+    }
+})
+
+document.getElementById("cidade").addEventListener("blur", function(){
+    fnAdicionarMensagemDeErro("mensagem-erro-cidade", "limpar")
+
+    let cidadevalido = fnValidarMinimoDeCaracteres(5, this.value);
+    if(cidadevalido == false){
+        fnAdicionarMensagemDeErro("mensagem-erro-cidade")
+        
+    }
+    let cidadeobrigatorio = fnValidarCampoObrigatorio(this.value);
+    if(cidadeobrigatorio == false){
+        fnAdicionarMensagemDeErro("mensagem-erro-cidade", "campo obrigatório")   
+        
+    }
+})
+

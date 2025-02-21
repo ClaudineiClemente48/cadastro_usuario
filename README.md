@@ -1,8 +1,12 @@
 # cadastro de usuário
+----------------------
 ## Regras
+----------------------
 ### Nome
  - **maximo 60 caracteres**
- - **mínimo 5 caracteres**
+ - **mínimo 5 caracteres** 
+ .mensagem de erro
+ .
  - **campo obrigatorio**
 
 ### E-mail
