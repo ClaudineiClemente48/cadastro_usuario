@@ -1,13 +1,16 @@
 
 function validarFormulario() {
-    let nome = document.getElementById("nome").value;
-    let email = document.getElementById("email").value;
-    let senha = document.getElementById("senha").value;
-    let confirmarSenha = document.getElementById("confirmarSenha").value;
-    let cidade = document.getElementById("cidade").value;
-    let estado = document.getElementById("estado").value;
 
-    if (nome === "" || email === "" || senha === "" || confirmarSenha === "" || cidade === "" || estado === "") {
+    // Obter os valores dos campos
+    const nome = document.getElementById("nome").value;
+    const email = document.getElementById("email").value;
+    const senha = document.getElementById("senha").value;
+    const confirmarSenha = document.getElementById("confirmarSenha").value;
+    const cidade = document.getElementById("cidade").value;
+    const estado = document.getElementById("estado").value;
+
+ // Verificar se todos os campos obrigatórios foram preenchidos
+    if (!nome || !email || !senha || !confirmarSenha || !cidade || !estado) {
         alert("Todos os campos são obrigatórios!");
         return false;
     }
@@ -15,6 +18,7 @@ function validarFormulario() {
         alert("As senhas não coincidem!");
         return false;
     }
+    
     alert("Cadastro realizado com sucesso!");
     return true;
 }
