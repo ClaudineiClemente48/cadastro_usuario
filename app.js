@@ -23,6 +23,10 @@ document.getElementById("email").addEventListener("blur", function(){
     if(emailobrigadorio == false){
         fnAdicionarMensagemDeErro("mensagem-erro-email", "campo obrigatório")
     }
+    let emailFormatoValido = fnValidareEmail(this.value);
+    if(emailFormatoValido == false){
+        fnAdicionarMensagemDeErro("mensagem-erro-email", "Este E-mail é iválido")
+    }
         
 })
 
